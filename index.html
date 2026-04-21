@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostico | Laboratorio de Analisis Clinicos</title>
+  <meta name="description" content="Laboratorio de analisis clinicos con atencion integral, resultados confiables y navegacion optimizada para PC y Android.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/effects.css">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="bg-layer" aria-hidden="true">
+    <span class="bg-orb bg-orb--one"></span>
+    <span class="bg-orb bg-orb--two"></span>
+    <span class="bg-grid"></span>
+  </div>
+
+  <site-header></site-header>
+
+  <main>
+    <hero-section></hero-section>
+    <services-section></services-section>
+    <identity-gallery></identity-gallery>
+    <workflow-section></workflow-section>
+    <contact-section></contact-section>
+  </main>
+
+  <site-footer></site-footer>
+  <mobile-dock></mobile-dock>
+
+  <script src="components/site-header.js" defer></script>
+  <script src="components/hero-section.js" defer></script>
+  <script src="components/services-section.js" defer></script>
+  <script src="components/identity-gallery.js" defer></script>
+  <script src="components/workflow-section.js" defer></script>
+  <script src="components/contact-section.js" defer></script>
+  <script src="components/site-footer.js" defer></script>
+  <script src="components/mobile-dock.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

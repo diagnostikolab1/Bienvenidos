@@ -1,0 +1,203 @@
+﻿.reveal {
+  opacity: 0;
+  transform: translateY(26px) scale(0.98);
+  transition: opacity 0.62s ease, transform 0.62s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease;
+}
+
+.hero-phrases span {
+  animation: floatTag 5.4s ease-in-out infinite;
+}
+
+.hero-phrases span:nth-child(2) {
+  animation-delay: -1.4s;
+}
+
+.hero-phrases span:nth-child(3) {
+  animation-delay: -2.6s;
+}
+
+.hero-scroll-cue::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: cueDown 1.6s ease-in-out infinite;
+}
+
+.pulse-line {
+  stroke-dasharray: 12 8;
+  animation: dashFlow 11s linear infinite;
+}
+
+.pulse-dot {
+  transform-origin: center;
+  animation: nodePulse 2.3s ease-in-out infinite;
+}
+
+.dot {
+  box-shadow: 0 0 0 0 rgba(31, 192, 138, 0.35);
+  animation: pulse 2.2s ease-out infinite;
+}
+
+.bg-orb--one {
+  animation: driftA 17s ease-in-out infinite;
+}
+
+.bg-orb--two {
+  animation: driftB 19s ease-in-out infinite;
+}
+
+.service-card,
+.timeline-step,
+.gallery-card,
+.info-card,
+.mini-metric,
+.metric,
+.contact-info,
+.contact-form-wrap {
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.service-card:hover,
+.timeline-step:hover,
+.gallery-card:hover,
+.info-card:hover,
+.mini-metric:hover,
+.metric:hover,
+.contact-info:hover,
+.contact-form-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+  border-color: rgba(0, 166, 193, 0.28);
+}
+
+.menu a,
+.mobile-nav a,
+.dock-item {
+  position: relative;
+}
+
+.menu a::after,
+.mobile-nav a::after,
+.dock-item::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--brand-deep), var(--brand));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.24s ease;
+}
+
+.menu a.active::after,
+.mobile-nav a.active::after,
+.dock-item.active::after,
+.menu a:hover::after,
+.mobile-nav a:hover::after,
+.dock-item:hover::after {
+  transform: scaleX(1);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(31, 192, 138, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(31, 192, 138, 0);
+  }
+}
+
+@keyframes floatTag {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes cueDown {
+  0%,
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  50% {
+    transform: translateY(5px) rotate(45deg);
+  }
+}
+
+@keyframes dashFlow {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes nodePulse {
+  0%,
+  100% {
+    opacity: 0.68;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes driftA {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -22px, 0);
+  }
+}
+
+@keyframes driftB {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 18px, 0);
+  }
+}
+
+@media (max-width: 900px) {
+  .menu a::after,
+  .mobile-nav a::after,
+  .dock-item::after {
+    bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
